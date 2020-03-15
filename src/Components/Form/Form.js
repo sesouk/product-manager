@@ -1,10 +1,18 @@
-import React, { Component } from 'react';
+import React, { useState } from 'react';
 
-export default class Form extends Component {
-  render() {
-    return (
-      <>
-      Form</>
-    );
-  }
-}
+const Form = () => {
+  
+  const [product, setProduct] = useState({name: '', price: null, image: '' })
+
+  return (
+    <>
+    <input>Name</input>
+    <input>Price</input>
+    <input>Image</input>
+    <button>Cancel</button>
+    <button>Add</button>
+    </>
+  );
+};
+
+export default Form;
