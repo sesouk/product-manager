@@ -8,6 +8,4 @@ const Product = () => {
   );
 };
 
-export default Product;<>
-Product
-</>
+export default Product;
