@@ -1,7 +1,9 @@
 import React from 'react';
 import Product from '../Product/Product'
 
-const Dashboard = () => {
+const Dashboard = (props) => {
+  console.log(props.inventory);
+  
   return (
     <>
     Dashboard
