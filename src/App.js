@@ -1,21 +1,24 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import axios from 'axios'
 import './App.css';
 import Dashboard from '../src/Components/Dashboard/Dashboard'
 import Form from '../src/Components/Form/Form'
 import Header from '../src/Components/Header/Header'
 
 function App() {
-const [inventory, setInventory] = useState([
-  {name: 'hello1', price: 5, image: 'http://res.cloudinary.com/kvge/image/upload/c_scale,w_800/v1525285958/Small-Logo-Front-Mock-Up-Black.png'},
-  {name: 'hello2', price: 10, image: 'http://res.cloudinary.com/kvge/image/upload/c_scale,w_800/v1525285958/Small-Logo-Front-Mock-Up-Black.png'},
-  {name: 'hello3', price: 15, image: 'http://res.cloudinary.com/kvge/image/upload/c_scale,w_800/v1525285958/Small-Logo-Front-Mock-Up-Black.png'},
-  {name: 'hello4', price: 20, image: 'http://res.cloudinary.com/kvge/image/upload/c_scale,w_800/v1525285958/Small-Logo-Front-Mock-Up-Black.png'}
-])
+const [inventory, setInventory] = useState([])
+
+useEffect(() => getProducts(), [inventory])
+
+const getProducts = () => {
+  axios.get('/api/inventory').then(r => setInventory(r.data))
+}
+
   return (
     <div className="App">
     <Header/>
     <Dashboard inventory={inventory}/>
-    <Form/>
+    <Form getProducts={getProducts}/>
     </div>
     );
 }

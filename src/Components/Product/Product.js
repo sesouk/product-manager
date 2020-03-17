@@ -6,7 +6,7 @@ const Product = (props) => {
     return <div key ={i}>
     <div>{e.name}</div>
     <div>{e.price}</div>
-    <img src={e.image} alt={e.name}/>
+    <img src={e.img} alt={e.name}/>
     </div>
   })
   return (
