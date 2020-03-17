@@ -10,11 +10,11 @@ const Form = (props) => {
   const updateImage = val => setProduct({...product, img: val})
   const clearProduct = () => setProduct({name: '', price: '', img: ''})
 
-  const createProduct = (obj) => {
-    axios.post("/api/product", obj).then(() => {})
-  }
+  // const createProduct = (obj) => {
+  //   axios.post("/api/product", obj).then(() => {})
+  // }
   
-  const {name, price, img} = product
+  // const {name, price, img} = product
 
   return (
     <>
@@ -22,7 +22,7 @@ const Form = (props) => {
     <input placeholder='Price'onChange={e => updatePrice(e.target.value)} value={product.price}/>
     <input placeholder='Image'onChange={e => updateImage(e.target.value)} value={product.img}/>
     <button onClick={clearProduct}>Cancel</button>
-    <button onClick={createProduct({name, price, img})}>Add</button>
+    {/* <button onClick={createProduct({name, price, img})}>Add</button> */}
     </>
   );
 };

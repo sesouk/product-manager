@@ -8,7 +8,7 @@ import Header from '../src/Components/Header/Header'
 function App() {
 const [inventory, setInventory] = useState([])
 
-useEffect(() => getProducts(), [inventory])
+useEffect(() => getProducts(), [])
 
 const getProducts = () => {
   axios.get('/api/inventory').then(r => setInventory(r.data))
