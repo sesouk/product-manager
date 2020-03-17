@@ -18,3 +18,5 @@ massive({
 app.listen(SERVER_PORT, () => {
   console.log(`Server port is over ${SERVER_PORT}!`)
 })
+
+app.get('/api/inventory', ctrl.getProducts)
