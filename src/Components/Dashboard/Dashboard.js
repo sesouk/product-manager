@@ -6,7 +6,7 @@ const Dashboard = (props) => {
   return (
     <>
     Dashboard
-    <Product inventory={props}/>
+    <Product inventory={props} toggle={props}/>
     </>
   );
 };

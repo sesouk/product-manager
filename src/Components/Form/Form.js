@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import axios from 'axios'
 
 const Form = (props) => {
-  
   const [product, setProduct] = useState({name: '', price: '', img: '' })
 
   const updateName = val => setProduct({...product, name: val})
@@ -21,14 +20,15 @@ const Form = (props) => {
     props.getProducts()
   }
   
-
   return (
     <>
     <input placeholder='Name' onChange={e => updateName(e.target.value)} value={product.name}/>
     <input placeholder='Price'onChange={e => updatePrice(e.target.value)} value={product.price}/>
     <input placeholder='Image'onChange={e => updateImage(e.target.value)} value={product.img}/>
     <button onClick={clearProduct}>Cancel</button>
-    <button onClick={createProduct}>Add</button>
+    { props.btn 
+      ? <button onClick={createProduct}>Add</button>
+      : <button onClick={props.toggle}>Save Changes</button> }
     </>
   );
 };

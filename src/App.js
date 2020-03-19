@@ -6,7 +6,10 @@ import Form from '../src/Components/Form/Form'
 import Header from '../src/Components/Header/Header'
 
 function App() {
+const [btn, setBtn] = useState(true)
 const [inventory, setInventory] = useState([])
+
+const toggle = () => btn ? setBtn(false) : setBtn(true) 
 
 useEffect(() => getProducts(), [])
 
@@ -17,8 +20,8 @@ const getProducts = () => {
   return (
     <div className="App">
     <Header/>
-    <Dashboard inventory={inventory}/>
-    <Form getProducts={getProducts}/>
+    <Form getProducts={getProducts} toggle={toggle} btn={btn}/>
+    <Dashboard inventory={inventory} toggle={toggle}/>
     </div>
     );
 }
