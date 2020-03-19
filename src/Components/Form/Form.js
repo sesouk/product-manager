@@ -17,6 +17,8 @@ const Form = (props) => {
       img: product.img
     }
     axios.post("/api/product", newProd).then(() => {})
+    clearProduct()
+    props.getProducts()
   }
   
 
@@ -26,7 +28,7 @@ const Form = (props) => {
     <input placeholder='Price'onChange={e => updatePrice(e.target.value)} value={product.price}/>
     <input placeholder='Image'onChange={e => updateImage(e.target.value)} value={product.img}/>
     <button onClick={clearProduct}>Cancel</button>
-    <button onClick={createProduct()}>Add</button>
+    <button onClick={createProduct}>Add</button>
     </>
   );
 };

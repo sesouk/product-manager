@@ -5,9 +5,7 @@ module.exports = {
     db
       .all_products()
       .then(products => res.status(200).send(products))
-      .catch(error => {
-        res.status(500).send(error, "Sorry an unknown error occured")
-      })
+      .catch(error => console.log(error))
   },
 
   editProduct: (req, res, next) => {
@@ -21,9 +19,7 @@ module.exports = {
         body.img
       ])
       .then(products => res.status(200).send(products))
-      .catch(error =>
-        res.status(500).send({errorMessage: "Sorry an unknown error occured"})
-      )
+      .catch(error => console.log(error))
   },
 
   createProduct: (req, res, next) => {
@@ -31,10 +27,8 @@ module.exports = {
     const { name, price, img } = req.body;
 
     db
-      .create_product([name, price, img])
-      .then(products => res.status(200).send(products))
-      .catch(error =>
-        res.status(500).send({errorMessage: "Sorry an unknown error occured"})
-      );
+    .create_product(name, price, img)
+    .then(products => res.status(200)
+    .send(products)).catch(error => console.log(error))
   },
 }
