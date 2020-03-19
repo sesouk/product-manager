@@ -20,5 +20,5 @@ app.listen(SERVER_PORT, () => {
 })
 
 app.get('/api/inventory', ctrl.getProducts)
-// app.post('/api/product', ctrl.createProduct)
+app.post('/api/product', ctrl.createProduct)
 // app.post('/api/product/:id', ctrl.editProduct)

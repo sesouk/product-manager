@@ -1,5 +1,5 @@
 module.exports = {
-  getProducts: (req, res) => {
+  getProducts: (req, res, next) => {
     const db = req.app.get('db')
 
     db
@@ -10,7 +10,7 @@ module.exports = {
       })
   },
 
-  editProduct: (req, res) => {
+  editProduct: (req, res, next) => {
     const db = req.app.get('db')
     const { params, body } = req
     db
