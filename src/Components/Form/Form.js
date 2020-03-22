@@ -35,7 +35,7 @@ const Form = (props) => {
     <button onClick={clearProduct}>Cancel</button>
     { props.btn 
       ? <button onClick={createProduct}>Add</button>
-      : <button onClick={props.toggle}>Save Changes</button> }
+      : <button onClick={props.toggle, clearProduct}>Save Changes</button> }
     </>
   );
 };
