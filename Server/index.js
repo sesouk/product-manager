@@ -11,8 +11,8 @@ const { SERVER_PORT, CONNECTION_STRING } = process.env
 massive({
   connectionString: CONNECTION_STRING,
   ssl: {rejectUnauthorized: false}
-}).then(dbInstance => {
-  app.set('db', dbInstance)
+}).then(db => {
+  app.set('db', db)
 }).catch(err => console.log('ERROR', err))
 
 app.listen(SERVER_PORT, () => {
@@ -21,4 +21,5 @@ app.listen(SERVER_PORT, () => {
 
 app.get('/api/inventory', ctrl.getProducts)
 app.post('/api/product', ctrl.createProduct)
+app.delete("/api/inventory/:id", ctrl.deleteProduct)
 // app.post('/api/product/:id', ctrl.editProduct)

@@ -21,7 +21,7 @@ const getProducts = () => {
     <div className="App">
     <Header/>
     <Form getProducts={getProducts} toggle={toggle} btn={btn}/>
-    <Dashboard inventory={inventory} toggle={toggle}/>
+    <Dashboard inventory={inventory} toggle={toggle} getProducts={getProducts}/>
     </div>
     );
 }

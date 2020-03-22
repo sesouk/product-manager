@@ -1,14 +1,13 @@
 import React from 'react';
 
 const Product = (props) => {
-  const inventory = props.inventory.inventory
-  const products = inventory.map((e, i) => {
+  const products = props.inventory.map((e, i) => {
     return <div key ={i}>
     <div>{e.name}</div>
     <div>{e.price}</div>
     <img src={e.img} alt={e.name}/>
-    <button>Delete</button>
-    <button onClick={props.toggle.toggle}>Edit</button>
+    <button onClick={() => props.deleteProd(e.id)}>Delete</button>
+    <button onClick={props.toggle}>Edit</button>
     </div>
   })
   return (

@@ -7,7 +7,14 @@ const Form = (props) => {
   const updateName = val => setProduct({...product, name: val})
   const updatePrice = val => setProduct({...product, price: val})
   const updateImage = val => setProduct({...product, img: val})
-  const clearProduct = () => setProduct({name: '', price: '', img: ''})
+  const clearProduct = () => {
+    setProduct({name: '', price: '', img: ''})
+    if (props.btn) {
+      return null
+    } else {
+      props.toggle()
+    }
+}
 
   const createProduct = () => {
     const newProd = {
