@@ -7,7 +7,7 @@ const Product = (props) => {
     <div>{e.price}</div>
     <img src={e.img} alt={e.name}/>
     <button onClick={() => props.deleteProd(e.id)}>Delete</button>
-    <button onClick={props.toggle}>Edit</button>
+    <button onClick={() => {props.toggle() && props.setId(e.id)}}>Edit</button>
     </div>
   })
   return (

@@ -8,6 +8,7 @@ import Header from '../src/Components/Header/Header'
 function App() {
 const [btn, setBtn] = useState(true)
 const [inventory, setInventory] = useState([])
+const [id, setId] = useState('')
 
 const toggle = () => btn ? setBtn(false) : setBtn(true) 
 
@@ -20,8 +21,8 @@ const getProducts = () => {
   return (
     <div className="App">
     <Header/>
-    <Form getProducts={getProducts} toggle={toggle} btn={btn}/>
-    <Dashboard inventory={inventory} toggle={toggle} getProducts={getProducts}/>
+    <Form getProducts={getProducts} toggle={toggle} btn={btn} id={id}/>
+    <Dashboard inventory={inventory} toggle={toggle} getProducts={getProducts} setId={setId}/>
     </div>
     );
 }

@@ -2,11 +2,12 @@ import React, { useState } from 'react';
 import axios from 'axios'
 
 const Form = (props) => {
-  const [product, setProduct] = useState({name: '', price: '', img: '' })
+  const [product, setProduct] = useState({name: '', price: '', img: ''})
 
   const updateName = val => setProduct({...product, name: val})
   const updatePrice = val => setProduct({...product, price: val})
   const updateImage = val => setProduct({...product, img: val})
+
   const clearProduct = () => {
     setProduct({name: '', price: '', img: ''})
     if (props.btn) {
@@ -26,7 +27,18 @@ const Form = (props) => {
     clearProduct()
     props.getProducts()
   }
-  
+
+  const editProduct = (id) => {
+    const editProd = {
+      name: product.name,
+      price: product.price,
+      img: product.img
+    }
+    axios.put(`/api/product/${id}`, editProd).then(() => {})
+    console.log(editProd);
+    
+  }
+
   return (
     <>
     <input placeholder='Name' onChange={e => updateName(e.target.value)} value={product.name}/>
@@ -35,7 +47,7 @@ const Form = (props) => {
     <button onClick={clearProduct}>Cancel</button>
     { props.btn 
       ? <button onClick={createProduct}>Add</button>
-      : <button onClick={props.toggle, clearProduct}>Save Changes</button> }
+      : <button onClick={() => {props.toggle() && clearProduct() && editProduct(props.id)}}>Save Changes</button> }
     </>
   );
 };

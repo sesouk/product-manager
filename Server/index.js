@@ -22,4 +22,4 @@ app.listen(SERVER_PORT, () => {
 app.get('/api/inventory', ctrl.getProducts)
 app.post('/api/product', ctrl.createProduct)
 app.delete("/api/inventory/:id", ctrl.deleteProduct)
-// app.post('/api/product/:id', ctrl.editProduct)
+app.put('/api/product/:id', ctrl.editProduct)
