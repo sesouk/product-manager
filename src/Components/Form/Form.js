@@ -23,9 +23,9 @@ const Form = (props) => {
       price: product.price,
       img: product.img
     }
-    axios.post("/api/product", newProd).then(() => {})
+    axios.post("/api/product", newProd).then(() => {props.getProducts()})
     clearProduct()
-    props.getProducts()
+    
   }
 
   const editProduct = (id) => {
@@ -34,8 +34,8 @@ const Form = (props) => {
       price: product.price,
       img: product.img
     }
-    axios.put(`/api/product/${id}`, editProd).then(() => {})
-    console.log(editProd);
+    axios.put(`/api/product/${id}`, editProd).then(() => {props.getProducts()})
+    
     
   }
 
@@ -47,7 +47,7 @@ const Form = (props) => {
     <button onClick={clearProduct}>Cancel</button>
     { props.btn 
       ? <button onClick={createProduct}>Add</button>
-      : <button onClick={() => {props.toggle() && clearProduct() && editProduct(props.id)}}>Save Changes</button> }
+      : <button onClick={() => {props.toggle(); clearProduct(); editProduct(props.id)}}>Save Changes</button> }
     </>
   );
 };

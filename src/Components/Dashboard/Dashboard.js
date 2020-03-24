@@ -11,7 +11,7 @@ const Dashboard = (props) => {
   return (
     <>
     Dashboard
-    <Product inventory={props.inventory} toggle={props.toggle} deleteProd={deleteProd} setId={props.setId}/>
+    <Product inventory={props.inventory} toggle={props.toggle} deleteProd={deleteProd} getId={props.getId} btn={props.btn}/>
     </>
   );
 };

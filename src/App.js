@@ -10,6 +10,8 @@ const [btn, setBtn] = useState(true)
 const [inventory, setInventory] = useState([])
 const [id, setId] = useState('')
 
+const getId = (val) => setId(val)
+
 const toggle = () => btn ? setBtn(false) : setBtn(true) 
 
 useEffect(() => getProducts(), [])
@@ -22,7 +24,7 @@ const getProducts = () => {
     <div className="App">
     <Header/>
     <Form getProducts={getProducts} toggle={toggle} btn={btn} id={id}/>
-    <Dashboard inventory={inventory} toggle={toggle} getProducts={getProducts} setId={setId}/>
+    <Dashboard inventory={inventory} toggle={toggle} getProducts={getProducts} getId={getId} btn={btn}/>
     </div>
     );
 }
