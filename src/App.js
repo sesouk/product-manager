@@ -24,8 +24,8 @@ function App() {
     <div className="App">
       <Header/>
       <div className='product-container'>
-        <Form getProducts={getProducts} toggle={toggle} btn={btn} id={id}/>
         <Dashboard inventory={inventory} toggle={toggle} getProducts={getProducts} getId={getId} btn={btn}/>
+        <Form getProducts={getProducts} toggle={toggle} btn={btn} id={id}/>
       </div>
     </div>
     );
