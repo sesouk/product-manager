@@ -24,9 +24,12 @@ const Form = (props) => {
   }
 
   const clearProduct = () => {
-    setImage('')
-    setPrice('')
-    setName('')
+    updateImage('')
+    updatePrice('')
+    updateName('')
+    props.getImg('')
+    props.getPrice('')
+    props.getName('')
     if (props.btn) {
       return null
     } else {
