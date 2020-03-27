@@ -34,21 +34,23 @@ const Form = (props) => {
       price: product.price,
       img: product.img
     }
-    axios.put(`/api/product/${id}`, editProd).then(() => {props.getProducts()})
-    
-    
+    axios.put(`/api/product/${id}`, editProd).then(() => {props.getProducts()})  
   }
 
   return (
-    <>
-    <input placeholder='Name' onChange={e => updateName(e.target.value)} value={product.name}/>
-    <input placeholder='Price'onChange={e => updatePrice(e.target.value)} value={product.price}/>
-    <input placeholder='Image'onChange={e => updateImage(e.target.value)} value={product.img}/>
-    <button onClick={clearProduct}>Cancel</button>
-    { props.btn 
-      ? <button onClick={createProduct}>Add</button>
-      : <button onClick={() => {props.toggle(); clearProduct(); editProduct(props.id)}}>Save Changes</button> }
-    </>
+    <div className='form'>
+      <input placeholder='Name' onChange={e => updateName(e.target.value)} value={product.name}/>
+      <input placeholder='Price'onChange={e => updatePrice(e.target.value)} value={product.price}/>
+      <input placeholder='Image'onChange={e => updateImage(e.target.value)} value={product.img}/>
+      <div>
+        <button onClick={clearProduct}>Cancel</button>
+        { props.btn 
+          ? <button onClick={createProduct}>Add</button>
+          : <button onClick={() => {
+            props.toggle(); clearProduct(); editProduct(props.id)
+            }}>Save Changes</button> }
+      </div>
+    </div>
   );
 };
 
