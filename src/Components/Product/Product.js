@@ -8,7 +8,7 @@ const Product = (props) => {
     <div>{e.price}</div>
     <div className='prodBtn'>
     <img src={e.img} alt={e.name}/>
-    <div>
+    <div className='prodBtnHldr'>
     <button onClick={() => deleteProd(e.id)}>Delete</button>
     <button onClick={() => {
       getId(e.id); 

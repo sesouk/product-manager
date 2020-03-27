@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import axios from 'axios'
+import noImg from '../Assets/noimage.png'
 
 const Form = (props) => {
   const [product, setProduct] = useState({name: '', price: '', img: ''})
@@ -39,6 +40,9 @@ const Form = (props) => {
 
   return (
     <div className='form'>
+      { !product.img 
+      ? <img src={noImg} alt='Nothing to display'/>
+      : <img src={product.img} alt={product.name}/> }   
       <input placeholder='Name' onChange={e => updateName(e.target.value)} value={product.name}/>
       <input placeholder='Price'onChange={e => updatePrice(e.target.value)} value={product.price}/>
       <input placeholder='Image'onChange={e => updateImage(e.target.value)} value={product.img}/>
