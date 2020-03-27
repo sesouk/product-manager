@@ -1,7 +1,8 @@
 import React from 'react';
 
 const Product = (props) => {
-  const { getId, toggle, deleteProd, inventory, btn } = props
+  const { getId, toggle, deleteProd, inventory, btn, 
+    getName, getPrice, getImg, editProd} = props
   const products = inventory.map((e, i) => {
     return <div key ={i}>
     <div className='prodBtn'>
@@ -11,7 +12,11 @@ const Product = (props) => {
     <div>Price: ${e.price}</div>
     <button onClick={() => deleteProd(e.id)}>Delete</button>
     <button onClick={() => {
-      getId(e.id); 
+      getId(e.id);
+      if (editProd !== e.name) {
+      getName(e.name) 
+      getPrice(e.price) 
+      getImg(e.img)}
       if (btn) toggle()
       }}>Edit</button>
     </div>

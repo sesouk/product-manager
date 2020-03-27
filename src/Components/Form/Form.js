@@ -1,16 +1,32 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import axios from 'axios'
 import noImg from '../Assets/noimage.png'
 
 const Form = (props) => {
-  const [product, setProduct] = useState({name: '', price: '', img: ''})
+  const [prodName, setName] = useState('')
+  const [prodPrice, setPrice] = useState('')
+  const [prodImage, setImage] = useState('')
 
-  const updateName = val => setProduct({...product, name: val})
-  const updatePrice = val => setProduct({...product, price: val})
-  const updateImage = val => setProduct({...product, img: val})
+  const updateName = val => setName(val)
+  const updatePrice = val => setPrice(val)
+  const updateImage = val => setImage(val)
+
+  useEffect(() => check())
+
+  const check = () => {
+    if (prodName !== props.editName) {
+      updateName(props.editName)
+      updateImage(props.editImg)
+      updatePrice(props.editPrice)
+      console.log('working');
+      
+    }
+  }
 
   const clearProduct = () => {
-    setProduct({name: '', price: '', img: ''})
+    setImage('')
+    setPrice('')
+    setName('')
     if (props.btn) {
       return null
     } else {
@@ -20,9 +36,9 @@ const Form = (props) => {
 
   const createProduct = () => {
     const newProd = {
-      name: product.name,
-      price: product.price,
-      img: product.img
+      name: prodName,
+      price: prodPrice,
+      img: prodImage
     }
     axios.post("/api/product", newProd).then(() => {props.getProducts()})
     clearProduct()
@@ -31,21 +47,21 @@ const Form = (props) => {
 
   const editProduct = (id) => {
     const editProd = {
-      name: product.name,
-      price: product.price,
-      img: product.img
+      name: prodName,
+      price: prodPrice,
+      img: prodImage
     }
     axios.put(`/api/product/${id}`, editProd).then(() => {props.getProducts()})  
   }
 
   return (
     <div className='form'>
-      { !product.img 
+      { !prodImage 
       ? <img src={noImg} alt='Nothing to display'/>
-      : <img src={product.img} alt={product.name}/> }   
-      <input placeholder='Name' onChange={e => updateName(e.target.value)} value={product.name}/>
-      <input placeholder='Price'onChange={e => updatePrice(e.target.value)} value={product.price}/>
-      <input placeholder='Image'onChange={e => updateImage(e.target.value)} value={product.img}/>
+      : <img src={prodImage} alt={prodName}/> }   
+      <input placeholder='Name' onChange={e => updateName(e.target.value)} value={prodName}/>
+      <input placeholder='Price'onChange={e => updatePrice(e.target.value)} value={prodPrice}/>
+      <input placeholder='Image'onChange={e => updateImage(e.target.value)} value={prodImage}/>
       <div>
         <button onClick={clearProduct}>Cancel</button>
         { props.btn 

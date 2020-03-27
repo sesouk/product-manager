@@ -9,9 +9,14 @@ function App() {
   const [btn, setBtn] = useState(true)
   const [inventory, setInventory] = useState([])
   const [id, setId] = useState('')
+  const [editName, setName] = useState('')
+  const [editPrice, setPrice] = useState('')
+  const [editImg, setImg] = useState('')
 
   const getId = (val) => setId(val)
-
+  const getName = (val) => setName(val)
+  const getPrice = (val) => setPrice(val)
+  const getImg = (val) => setImg(val)
   const toggle = () => btn ? setBtn(false) : setBtn(true) 
 
   useEffect(() => getProducts(), [])
@@ -24,8 +29,13 @@ function App() {
     <div className="App">
       <Header/>
       <div className='product-container'>
-        <Dashboard inventory={inventory} toggle={toggle} getProducts={getProducts} getId={getId} btn={btn}/>
-        <Form getProducts={getProducts} toggle={toggle} btn={btn} id={id}/>
+        <Dashboard inventory={inventory} toggle={toggle} 
+        getProducts={getProducts} getId={getId} 
+        btn={btn} getName={getName} getPrice={getPrice} getImg={getImg}/>
+        <Form getProducts={getProducts} toggle={toggle} 
+        btn={btn} id={id}
+        editPrice={editPrice} editName={editName}
+        editImg={editImg}/>
       </div>
     </div>
     );
