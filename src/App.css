@@ -1,6 +1,7 @@
 body {
   padding: 0;
   margin: 0;
+  font-family: 'Hind Vadodara', sans-serif
 }
 
 .App {
@@ -44,10 +45,26 @@ body {
   margin: 20px;
   font-weight: bold;
   font-size: large;
+  border-radius: 5px;
+}
+
+.dashboard {
+  max-height: 90vh;
+  overflow-y: scroll;
 }
 
 header {
+  display: flex;
   background-color: #859ce7;
+  height: 3rem;
+  margin: auto;
+}
+
+p {
+  margin: auto;
+  text-align: center;
+  font-size: x-large;
+  font-weight: bold;
 }
 
 .form {
@@ -58,6 +75,7 @@ header {
   min-height: 25rem;
   padding: 20px;
   margin: 20px;
+  border-radius: 5px;
 }
 
 .form > img {

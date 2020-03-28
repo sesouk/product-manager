@@ -4,7 +4,9 @@ const Header = () => {
   return (
     <>
     <header>
-      Header
+      <p>
+        Product Manager
+      </p>  
     </header>
     </>
   );
