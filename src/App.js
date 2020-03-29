@@ -29,16 +29,16 @@ function App() {
     <div className="App">
       <Header/>
       <div className='product-container'>
-        <Dashboard inventory={inventory} toggle={toggle} 
-        getProducts={getProducts} getId={getId} 
-        btn={btn} getName={getName} getPrice={getPrice} 
-        getImg={getImg}/>
-
         <Form getProducts={getProducts} toggle={toggle} 
         btn={btn} id={id}
         editPrice={editPrice} editName={editName}
         editImg={editImg} getName={getName} 
         getPrice={getPrice} getImg={getImg}/>
+
+        <Dashboard inventory={inventory} toggle={toggle} 
+        getProducts={getProducts} getId={getId} 
+        btn={btn} getName={getName} getPrice={getPrice} 
+        getImg={getImg}/>
       </div>
     </div>
     );

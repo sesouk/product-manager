@@ -78,10 +78,6 @@ p {
   border-radius: 5px;
 }
 
-.form > img {
-  justify-self: center;
-}
-
 .form > div {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(2rem, 1fr));
@@ -107,4 +103,102 @@ input {
 
 img {
   width: 20rem;
+  justify-self: center;
+}
+
+button {
+  border: solid black 1px
+}
+
+@media screen and (max-width: 1110px) {
+  img {
+    width: 17rem;
+  }
+
+  .prodBtn {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+
+  .form {
+    min-height: 23rem;
+  }
+}
+
+@media screen and (max-width: 725px) {
+  img {
+    width: 11rem;
+  }
+
+  .form {
+    min-height: 18rem;
+  }
+}
+
+@media screen and (max-width: 632px) {
+  img {
+    width: 11rem;
+  }
+
+  .product-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: flex-start;
+    text-align: left;
+    gap: .1rem;
+    margin: 0 auto;
+  }
+}
+
+@media screen and (max-width: 526px) {
+  img {
+    width: 20rem;
+  }
+
+  .prodBtn {
+    display: grid;
+    grid-template-rows: 1fr;
+    gap: 1rem;
+  }
+
+  .product-container {
+    display: grid;
+    grid-template-rows: 27rem 1fr;
+    grid-template-columns: none;
+    align-items: center;
+    text-align: left;
+    gap: .5rem;
+    margin: auto;
+  }
+
+  .dashboard {
+    max-height: none;
+    overflow-y: none;
+  }
+}
+
+@media screen and (max-width: 400px) {
+  img {
+    width: 17rem;
+  }
+}
+
+@media screen and (max-width: 353px) {
+  img {
+    width: 14rem;
+  }
+
+  .form {
+    min-height: 20rem;
+  }
+
+  .product-container {
+    display: grid;
+    grid-template-rows: 24rem 1fr;
+    align-items: flex-start;
+    text-align: left;
+    gap: .5rem;
+    margin: auto;
+  }
 }
