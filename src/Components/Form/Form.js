@@ -20,7 +20,6 @@ const Form = (props) => {
       updateName(editName)
       updateImage(editImg)
       updatePrice(editPrice)
-      console.log('working');
   }
 
   const clearProduct = () => {

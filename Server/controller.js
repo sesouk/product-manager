@@ -10,7 +10,6 @@ module.exports = {
 
   editProduct: (req, res, next) => {
     const db = req.app.get('db')
-    console.log(req.params.id);
     
     const { params, body } = req
     db

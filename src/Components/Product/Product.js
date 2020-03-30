@@ -1,9 +1,13 @@
 import React from 'react';
 
 const Product = (props) => {
-  const { getId, toggle, deleteProd, inventory, btn, 
+  Product.defaultProps = {
+    inventory: []
+  }
+  const { getId, toggle, deleteProd, btn, inventory, 
     getName, getPrice, getImg, editProd} = props
-  const products = inventory.map((e, i) => {
+    console.log(inventory);
+  const products = inventory && inventory.map((e, i) => {
     return <div key ={i}>
     <div className='prodBtn'>
     <img src={e.img} alt={e.name}/>
@@ -21,7 +25,7 @@ const Product = (props) => {
       }}>Edit</button>
     </div>
     </div>
-    </div>
+    </div> 
   })
   return (
     <>
