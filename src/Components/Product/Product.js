@@ -6,7 +6,6 @@ const Product = (props) => {
   }
   const { getId, toggle, deleteProd, btn, inventory, 
     getName, getPrice, getImg, editProd} = props
-    console.log(inventory);
   const products = inventory && inventory.map((e, i) => {
     return <div key ={i}>
     <div className='prodBtn'>
